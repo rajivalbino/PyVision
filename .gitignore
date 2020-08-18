@@ -1,0 +1,16 @@
+# Compiled objects
+*.exe
+*.o
+
+# Packages
+*.7z
+*.zip
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
