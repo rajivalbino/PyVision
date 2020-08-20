@@ -67,4 +67,27 @@ blurred = cv2.medianBlur(img, 7)
 cv2.imshow("Median Blur", blurred)
 cv2.waitKey(0)
 
+# Rectangle
+imgcpy = img.copy()
+cv2.rectangle(img=imgcpy, pt1=(320,60), pt2=(420,160), color=(0,255,0), thickness=2, lineType=4)
+cv2.imshow("Rectangle", imgcpy)
+cv2.waitKey(0)
 
+# Circle
+imgcpy = img.copy()
+cv2.circle(img=imgcpy, center=center, radius=20, color=(255,0,0), thickness=-1)
+cv2.imshow("Circle", imgcpy)
+cv2.waitKey(0)
+
+# Line
+imgcpy = img.copy()
+cv2.line(img=imgcpy, pt1=(60,20), pt2=(400,200), color=(0,0,255), thickness=5)
+cv2.imshow("Line", imgcpy)
+cv2.waitKey(0)
+
+# Text
+imgcpy = img.copy()
+cv2.putText(img=imgcpy, text="OpenCV", org=(10,25), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+            fontScale=0.7, color=(0,255,0), thickness=2)
+cv2.imshow("Text", imgcpy)
+cv2.waitKey(0)
