@@ -3,5 +3,13 @@
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "python": "py -u",
-    }
+    },
+    "python.pythonPath": "D:\\users\\F51844C\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+    "python.autoComplete.extraPaths": [
+        "D:\\users\\F51844C\\AppData\\Local\\Programs\\Python\\Python38-32\\Lib\\site-packages"
+    ],
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=cv2"
+    ],
+    "python.linting.enabled": false
 }
