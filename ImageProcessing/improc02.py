@@ -1,10 +1,16 @@
 # Image Processing basic techniques with OpenCV
 # Tutorial from PyImageSearch
+import argparse
 import imutils
 import cv2
 
+# Argument parser
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--image", required=True, help="input image")
+args = vars(ap.parse_args())
+
 # Load
-img = cv2.imread("tetris_blocks.png")
+img = cv2.imread(args["image"])
 cv2.imshow("img", img)
 cv2.waitKey(0)
 
