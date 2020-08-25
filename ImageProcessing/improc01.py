@@ -1,9 +1,16 @@
 # Image Processing basic techniques with OpenCV
 # Tutorial from PyImageSearch
+import argparse
 import cv2
 import imutils
 
-img = cv2.imread("jp.png")
+# Argument parser
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--image", required=True, help="path to the image")
+args = vars(ap.parse_args())
+
+# Load
+img = cv2.imread(args["image"])
 
 # Images are numpy objects, depth is the number of channels
 (h, w, d) = img.shape 
@@ -18,7 +25,9 @@ print("R={}, G={}, B={}".format(R,G,B))
 
 # ROI (Region of Interest)
 # Rectangle from x,y = 320,60 to x,y = 420,160
-roi = img[60:160, 320:420]
+rx,ry,rw,rh = cv2.selectROI("Image", img)
+#roi = img[220:420, 160:360]
+roi = img[ry:ry+rh, rx:rx+rw]
 cv2.imshow("ROI", roi)
 cv2.waitKey(0)
 
@@ -69,25 +78,26 @@ cv2.waitKey(0)
 
 # Rectangle
 imgcpy = img.copy()
-cv2.rectangle(img=imgcpy, pt1=(320,60), pt2=(420,160), color=(0,255,0), thickness=2, lineType=4)
-cv2.imshow("Rectangle", imgcpy)
+cv2.rectangle(img=imgcpy, pt1=(160,220), pt2=(360,420), color=(0,255,0), thickness=2, lineType=4)
+cv2.imshow("Output", imgcpy)
 cv2.waitKey(0)
 
 # Circle
-imgcpy = img.copy()
-cv2.circle(img=imgcpy, center=center, radius=20, color=(255,0,0), thickness=-1)
-cv2.imshow("Circle", imgcpy)
+# imgcpy = img.copy()
+cv2.circle(img=imgcpy, center=(220,265), radius=10, color=(255,0,0), thickness=-1)
+cv2.imshow("Output", imgcpy)
 cv2.waitKey(0)
 
 # Line
-imgcpy = img.copy()
-cv2.line(img=imgcpy, pt1=(60,20), pt2=(400,200), color=(0,0,255), thickness=5)
-cv2.imshow("Line", imgcpy)
+# imgcpy = img.copy()
+b = 40
+cv2.line(img=imgcpy, pt1=(b,b), pt2=(w-b,h-b), color=(0,0,255), thickness=5)
+cv2.imshow("Output", imgcpy)
 cv2.waitKey(0)
 
 # Text
-imgcpy = img.copy()
+# imgcpy = img.copy()
 cv2.putText(img=imgcpy, text="OpenCV", org=(10,25), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
             fontScale=0.7, color=(0,255,0), thickness=2)
-cv2.imshow("Text", imgcpy)
+cv2.imshow("Output", imgcpy)
 cv2.waitKey(0)
