@@ -39,6 +39,7 @@ py -m pip install cmake
 py -m pip install clang
 py -m pip install dlib
 py -m pip install face_recognition
+py -m pip install -U scikit-image
 ```
 
 #### To use Cuda acceleration on dlib, build from source, need Visual Studio(clang) installed:
