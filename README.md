@@ -28,6 +28,12 @@ C:\{path-to}\Python\Launcher\
 - Python
 - Code Runner (quality of life change)
 
+#### Setup git user
+```
+git config --global user.name "Your Name"
+git config --global user.email "yourname@email.com"
+```
+
 #### Install the packages through `pip`: 
 ```
 py -m pip install --upgrade pip
