@@ -24,20 +24,6 @@ def convolve(image, kernel):
 
 	return output
 
-def modeBlur(img, pad):
-    img = cv2.copyMakeBorder(img, pad, pad, pad, pad, cv2.BORDER_CONSTANT, value=0)
-    h,w = img.shape[:2]
-    ch = 1 if img.ndim == 2 else img.shape[2] #!!!
-    output = np.zeros((ch,h,w), dtype="uint8")
-	
-	for k in np.arange(ch):
-		for j in np.arange(pad, h+pad):
-			for i in np.arange(pad, w+pad):
-				roi = image[k, j-pad:j+pad+1, i-pad:i+pad+1]
-				val = roi.
-
-
-
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True,	help="path to the input image")
@@ -98,4 +84,4 @@ for (kernelName, kernel) in kernelBank:
 	cv2.imshow("{} - opencv".format(kernelName), opencvOutput)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
-    
+
