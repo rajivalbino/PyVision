@@ -8,7 +8,6 @@ def modeBlur(img, pad):
     ch = 1 if img.ndim == 2 else img.shape[2]
     img = cv2.copyMakeBorder(img, pad, pad, pad, pad, cv2.BORDER_REPLICATE)
     output = np.zeros((h,w,ch), dtype="uint8")
-    #ksize = (2*pad+1)**2
 
     for k in np.arange(ch):
         for j in np.arange(pad, h+pad):
