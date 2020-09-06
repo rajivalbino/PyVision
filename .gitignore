@@ -1,6 +1,7 @@
 # Compiled objects
 *.exe
 *.o
+*.pyc
 
 # Packages
 *.7z
