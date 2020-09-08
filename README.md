@@ -4,7 +4,6 @@
 - OpenCV
 - DLib
 - Machine Learning
-- Deep Learning
 
 #### Setup on Windows
 - Install VS Code
