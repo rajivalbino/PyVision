@@ -39,15 +39,32 @@ predictor = dlib.shape_predictor(args["shape_predictor"])
 
 # start a threaded video stream
 stream = WebcamStream(src=0).start()
+key = None
 
-while True:
+while key != ord('q'):
     frame = stream.read()
-    frame = imutils.resize(frame, width=600)
+    frame = imutils.resize(frame, width=800)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    rects = detector(gray,1)
-    
+    # face detector
+    rects = detector(gray,0)
 
+    # for each face found
+    for (i, rect) in enumerate(rects):
+        # bounding box of the face
+        x,y,w,h = rect2xywh(rect)
+        cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0), 2)
 
+        # facial landmarks
+        shape = predictor(gray, rect)
+        shape = shape_to_np(shape)
 
+        # draw coordinates
+        for (x,y) in shape:
+            cv2.circle(frame, (x,y), 2, (0,0,255), -1)
+        
+    cv2.imshow("Video", frame)
+    key = cv2.waitKey(1) & 0xFF
 
+stream.stop()
+cv2.destroyAllWindows()
