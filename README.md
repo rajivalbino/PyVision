@@ -1,9 +1,10 @@
 # PyVision
 
-#### Computer Vision projects in Python and C++ sometimes
+#### Computer Vision and Data Science projects in Python
 - OpenCV
 - DLib
 - Machine Learning
+- Data Analysis
 
 #### Setup on Windows
 - Install VS Code
