@@ -12,5 +12,5 @@
         "--extension-pkg-whitelist=cv2"
     ],
     "python.linting.enabled": false,
-    "python.dataScience.jupyterServerURI": "local"
+    "jupyter.jupyterServerType": "local"
 }
